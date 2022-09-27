@@ -1,0 +1,25 @@
+/* miniprogram/pages/index/knowledge/queryResult/queryResult.wxss */
+.swiper_container {
+  height: 55rpx;
+  position: relative;
+  width: 100%;
+  color:#f37b1d;
+}
+.swiper_item_notice {
+  font-size: 25rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  letter-spacing: 2px;
+}
+.swiper_notice{
+  display: flex !important;
+  align-items: center !important;
+  padding-left: 20rpx !important;
+}
+.swiper_notice image{
+  width: 35rpx;
+  height: 35rpx;
+  margin-right:10rpx;
+  margin-right: 40rpx;
+}

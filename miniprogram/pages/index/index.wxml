@@ -1,0 +1,107 @@
+<!--miniprogram/pages/index/index.wxml-->
+<!-- <view class="tab-bar-height bg-white"></view> -->
+<!-- <view class="margin flex">
+    <image src="/images/tittle.png" style="height:200rpx"></image>
+  </view> -->
+<view class="StatusBar" style='--StatusBar:{{StatusBar}}px;'></view>
+<view class="bg-img"
+  style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcahJPxpWVpPDRXvnDVlzzr*Liv0OJoWsi9Zc53LWk3euKtrs3Fm5nFG0.xxuDmL.de6cPSwzBE5u3zZLp27lYVQ!/b&bo=3AWwAdwFsAEDGTw!&rf=viewer_4&t=5);height:214rpx">
+</view>
+<!-- <view class="grid col-3 bg-white padding-sm">
+    <view class="padding-sm">
+      <view class="bg-green padding radius text-center light" bindtap="toPlace">
+        <view class="text-lg margin-bottom">投放点</view>
+        <text class='text-xxl cuIcon-newsfill'></text>
+      </view>
+    </view>
+    <view class="padding-sm">
+      <view class="bg-cyan padding radius text-center light">
+        <view class="text-lg margin-bottom">扫码</view>
+        <text class='cuIcon-newsfill'></text>
+      </view>
+    </view>
+    <view class="padding-sm">
+      <view class="bg-blue padding radius text-center light" bindtap="toKnowledge">
+        <view class="text-lg margin-bottom">分类知识</view>
+        <text class='cuIcon-newsfill'></text>
+      </view>
+    </view>
+  </view> -->
+<view class="flex flex-wrap margin-left-xl padding-sm">
+  <view class="basis-df margin-right">
+    <view class="bg-img animation-{{scanCodeAnimation}} animation-reverse"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcRaFCYBdJUl6HaL*k3s*A*iZwyM5z40FpA788mpqGncsX6LuMSjP3WWL93pD00qzRpGZYRpzkXH*ASrpufqgtSg!/b&bo=lAKUApQClAIDGTw!&rf=viewer_4&t=5);height:330rpx"
+      bindtap="scanQRCode"></view>
+    <!-- <image src="/images/scan_button.png" style="height:340rpx"></image> -->
+  </view>
+  <view class="basis-sm">
+    <view class="bg-img animation-{{placeAnimation}} animation-reverse"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcRaFCYBdJUl6HaL*k3s*A*j9E3.Ov7T1gI23nIQLYza8eyQmExIru9TJOOfoG0XDNQX6jY62cMoI4aXf42Yr4tw!/b&bo=OAIwATgCMAEDGTw!&rf=viewer_4&t=5);height:146rpx"
+      bindtap="toPlace"></view>
+    <view class="bg-img animation-{{knowledgeAnimation}} animation-reverse"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcQfYoBQQZdED46qELhcF8*oSF.Kn22Vb6PIdaLTb6A6SdGv2**K79WvU.wTSoJd4wt9PkWAntPAyvPlkhDSimIY!/b&bo=OAJ4ATgCeAEDGTw!&rf=viewer_4&t=5);height:180rpx"
+      bindtap="toKnowledge"></view>
+    <!-- <image src="/images/place_button.png" style="height:170rpx" bindtap="toPlace"></image>
+      <image src="/images/knowledge_button.png" style="height:180rpx" bindtap="toKnowledge"></image> -->
+  </view>
+</view>
+
+<scroll-view scroll-x class="mynav margin-left-lg" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{0==TabCur?'bg-white':'bg-mygray'}}" bindtap="tabSelect" data-id="0">
+    环境热点聚焦
+  </view>
+  <view class="cu-item {{1==TabCur?'bg-white':'bg-mygray'}}" bindtap="tabSelect" data-id="1">
+    答题我知道
+  </view>
+</scroll-view>
+<!-- 环境热点聚焦版面 -->
+<view wx:if="{{0==TabCur}}" class="cu-card bg-white">
+  <view wx:for="{{queryResult}}" wx:key wx:for-item="item">
+    <view class="cu-card article" data-id="{{item.url}}" bindtap="toArtical">
+      <view class="cu-item shadow bg-white">
+        <view class="title">
+          <view class="text-cut">{{item.name}}</view>
+        </view>
+        <view class="content">
+          <image src="{{item.imgsrc}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.introduction}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 答题我知道版面 -->
+<view wx:if="{{1==TabCur}}" class="cu-card bg-white">
+  <!-- <view class="padding" wx:for="{{queryResult}}" wx:key wx:for-item="item">
+    <view class="bg-img"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE00ekuq/45NBuzDIW489QBoVep5mcQzC*GmDPTe3XlQr65yJYNkVnJ14mJOucaa1w07pAZGU2UKviYtdWp1rx3fyGAmsfrYuueqj4RZzR4Lq78x3QVI!/b&bo=QwFjAEMBYwADGTw!&rf=viewer_4&t=5);height:210rpx">
+    </view>
+  </view>
+</view> -->
+  <view wx:for="{{queryResult1}}" wx:key wx:for-item="item">
+    <view class="cu-card article" data-id="{{item.url}}" bindtap="toArtical">
+      <view class="cu-item shadow bg-white">
+        <view class="title">
+          <view class="text-cut">{{item.name}}</view>
+        </view>
+        <view class="content">
+          <image src="{{item.imgsrc}}" mode="aspectFill"></image>
+          <view class="desc">
+            <view class="text-content"> {{item.introduction}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="tab-bar-height"></view>
+
+  <!-- 加载框 -->
+  <view class='cu-load load-modal' wx:if="{{loadModal}}">
+    <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+    <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+    <view class='gray-text'>加载中...</view>
+  </view>

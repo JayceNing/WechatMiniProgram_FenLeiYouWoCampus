@@ -1,0 +1,33 @@
+<!--miniprogram/pages/activity/adminScanCode/adminScanCode.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">管理员扫码兑奖</view>
+</cu-custom>
+<view class="text-xl padding text-center">
+  <text class="text-black text-bold">活动名称：{{name}}</text>
+</view>
+<button class="cu-btn block bg-green margin-top lg"
+    bindtap="scanCode">点此扫码</button>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>已兑奖用户
+  </view>
+</view>
+<view wx:for="{{convertAwardUser}}" wx:key wx:for-item="item">
+  <view class="content flex-sub margin-left-xl margin-top">
+    <view class="text-black text-lg">姓名：{{item.stuName}} 学号：{{item.stuNum}} 奖品等级：{{item.prize}}</view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>未兑奖用户
+  </view>
+</view>
+
+<view wx:for="{{qualifyNoConvertUser}}" wx:key wx:for-item="item">
+  <view class="content flex-sub margin-left-xl margin-top">
+    <view class="text-black text-lg">姓名：{{item.stuName}} 学号：{{item.stuNum}} 奖品等级：{{item.prize}}</view>
+  </view>
+</view>

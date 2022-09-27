@@ -1,0 +1,4 @@
+/* miniprogram/pages/me/record/record.wxss */
+page{
+  background-color: #7f818d;
+}

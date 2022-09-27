@@ -1,0 +1,69 @@
+{
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/index/index",
+    "pages/me/me",
+    "pages/shop/shop",
+    "pages/tree/tree",
+    "pages/me/register/register",
+    "pages/me/about/about",
+    "pages/me/myInfo/myInfo",
+    "pages/index/place/place",
+    "pages/index/knowledge/knowledge",
+    "pages/me/record/record",
+    "pages/activity/activity",
+    "pages/me/login/login",
+    "pages/index/artical/artical",
+    "pages/activity/activityDetail/activityDetail",
+    "pages/faceConfirm/faceConfirm",
+    "pages/activity/adminScanCode/adminScanCode",
+    "pages/me/bindAccount/bindAccount",
+    "pages/index/knowledge/queryResult/queryResult"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于导航功能" 
+    }
+  },
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "images/tabbar/index.png",
+        "selectedIconPath": "images/tabbar/index_cur.png"
+      },
+      {
+        "pagePath": "pages/activity/activity",
+        "text": "",
+        "iconPath": "images/tabbar/shop.png",
+        "selectedIconPath": "images/tabbar/shop_cur.png"
+      },
+      {
+        "pagePath": "pages/tree/tree",
+        "text": "",
+        "iconPath": "images/tabbar/tree.png",
+        "selectedIconPath": "images/tabbar/tree_cur.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "",
+        "iconPath": "images/tabbar/me.png",
+        "selectedIconPath": "images/tabbar/me_cur.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

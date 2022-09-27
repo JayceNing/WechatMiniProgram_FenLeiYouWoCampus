@@ -1,0 +1,232 @@
+<!--miniprogram/pages/tree/tree.wxml-->
+<view wx:if="{{tree==0}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E7%A7%8D%E5%AD%90_%E5%BE%AA%E7%8E%AF.gif?sign=55be1e693db6a31f7832b9b48480970c&t=1622361257"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==1}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E7%A7%8D%E5%AD%90_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=619789be9646a34efe894b6c467d9f7b&t=1622361285"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==2}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E8%8B%97_%E5%BE%AA%E7%8E%AF.gif?sign=407f382890788246bca062130b6de91f&t=1622361299"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==3}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E8%8B%97_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=44bbecbeec032b337b6781aa5c70756f&t=1622361314"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==4}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E5%B0%8F%E6%A0%91_%E5%BE%AA%E7%8E%AF.gif?sign=8d1cd18cc8479f59885644dc7a45636d&t=1622361335"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==5}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E5%B0%8F%E6%A0%91_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=667b43122fe1aa2906ed866f1c228e8b&t=1622361348"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==6}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E6%A0%91_%E5%BE%AA%E7%8E%AF.gif?sign=5403c8f26a08da5c054988fdfd222392&t=1622361363"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+<view wx:if="{{tree==7}}">
+  <image
+    src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E6%A0%91_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=a4c5de5a952bb6a7434af4eade5e3873&t=1622361376"
+    mode="aspectFit" class="ScreenHeight response animation-{{animation}}" bindtap="toggle" data-class="shake"
+    style="--ScreenHeight:{{ScreenHeight}}px;"></image>
+</view>
+
+<view class="experienceButton text-xsl" style="--ScreenHeight20Percent:{{ScreenHeight20Percent}}px;"
+  bindtap="showProgress">
+  <text class="cuIcon-infofill text-orange"></text>
+</view>
+<view class="experienceButton text-xsl" style="--ScreenHeight20Percent:{{ScreenHeight30Percent}}px;" bindtap="shop">
+  <text class="cuIcon-shopfill text-yellow"></text>
+</view>
+
+<view wx:if="{{progress==1}}"
+  class="padding progress animation-{{progressAnimation}} {{loading==false?'animation-reverse':''}}"
+  style="--ScreenHeight16Percent:{{ScreenHeight16Percent}}px;">
+  <view class="cu-progress radius striped active">
+    <view class="bg-blue" style="width:{{water+'%'}};">{{water}}</view>
+  </view>
+  <view class="cu-progress radius striped active margin-top">
+    <view class="bg-orange" style="width:{{fertilizer+'%'}};">{{fertilizer}}</view>
+  </view>
+  <view class="cu-progress radius striped active margin-top">
+    <view class="bg-green" style="width:{{medicine+'%'}};">{{medicine}}</view>
+  </view>
+</view>
+
+<view class="questionButton text-xsl" style="--ScreenHeight10Percent:{{ScreenHeight10Percent}}px;" bindtap="showModal">
+  <text class="cuIcon-questionfill text-green"></text>
+</view>
+
+
+<view class="">
+  <view class="">
+    <view class="bg-img bigtag"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcQPaXxlX9PZS4GOBagQIiiathAxnV1PMFJRILlJN9itTYh69j7n1QcG8.Mw1ZBIoaPoA1iXXHymxwKei.uaBn5c!/b&bo=NARMATQETAEDGTw!&rf=viewer_4&t=5);height:150rpx;--StatusBar:{{StatusBar}}px;">
+      <view class="flex flex-wrap margin">
+        <view class="smalltag">
+          <view class="smalltagicon"
+            style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOW0DX0BS8OJLemCJdyr4udH1bEJ8REw7slfMRkuM4z2owH1tln6E6pw.gQbd0E3EgY!/b&bo=KwA*ACsAPwADGTw!&rf=viewer_4&t=5)">
+            <text class="margin-left-lg text-content text-blue">{{waterRes}}</text>
+          </view>
+        </view>
+        <view class="smalltag1">
+          <view class="smalltagicon"
+            style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOXqpwxx7rfEXgGWHCmCnEY32gLUjaH2zQBOvUO5PtcYhOxeMYfkeW*VcjdIOqO.hrc!/b&bo=OwA4ADsAOAADGTw!&rf=viewer_4&t=5);height:38rpx;width:40rpx">
+            <text class="margin-left-xl text-content text-brown">{{fertilizerRes}}</text>
+          </view>
+        </view>
+        <view class="smalltag2">
+          <view class="smalltagicon"
+            style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOXd0J*ZGKzFFBtbpEiafkbO6v.RCpcT5meqicVbJIDis33Hqf5w8t2.3jON1EUsLEk!/b&bo=NQA0ADUANAADGTw!&rf=viewer_4&t=5);height:38rpx;width:40rpx">
+            <text class="margin-left-xl text-content text-green">{{medicineRes}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 竖进度条 -->
+  <!-- <view class="progress" style="--ScreenHeight20Percent:{{ScreenHeight20Percent}}px;">
+    <view class="bg-img"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE00ekuq/45NBuzDIW489QBoVep5mcahJPxpWVpPDRXvnDVlzzr*UwK4sgkcdcT8RHCa.0mIqkhdnCMtrm*qYMfrh72BH7iL*uwOYOapBWePcSGs4eP8!/b&bo=HwCyAR8AsgEDGTw!&rf=viewer_4&t=5);height:900rpx;width:40rpx">
+      <view class="progressin"
+        style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE00ekuq/45NBuzDIW489QBoVep5mcWZNvbByeauNY*34l.pm7A0sDf611lXK3VK7rfBMQ22CJ8hKb0RSRtg3jdfqOp7xNCwOyPX4xfzzsdlmIaMPrfA!/b&bo=DQCzAA0AswADGTw!&rf=viewer_4&t=5)">
+      </view>
+    </view>
+  </view> -->
+
+  <view class="">
+    <view class="bg-img threeButton0"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcfq2vF9YAK4LXQxHjBDTQpjd049alM4SE3fl71S4x38IaFqHJ7ZJsx1arIdQi7RPcjNaiWHBWlYoHPchyRY33r4!/b&bo=8ADwAPAA8AADGTw!&rf=viewer_4&t=5);--ScreenHeight60Percent:{{ScreenHeight60Percent}}px;"
+      bindtap="button1animation">
+      <view class="buttonicon animation-{{button1animation}}"
+        style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOW0DX0BS8OJLemCJdyr4udH1bEJ8REw7slfMRkuM4z2owH1tln6E6pw.gQbd0E3EgY!/b&bo=KwA*ACsAPwADGTw!&rf=viewer_4&t=5);margin-left:46rpx">
+      </view>
+    </view>
+    <view class="bg-img threeButton1"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcfq2vF9YAK4LXQxHjBDTQpjd049alM4SE3fl71S4x38IaFqHJ7ZJsx1arIdQi7RPcjNaiWHBWlYoHPchyRY33r4!/b&bo=8ADwAPAA8AADGTw!&rf=viewer_4&t=5);--ScreenHeight70Percent:{{ScreenHeight70Percent}}px;"
+      bindtap="button2animation">
+      <view class="buttonicon animation-{{button2animation}}"
+        style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOXqpwxx7rfEXgGWHCmCnEY32gLUjaH2zQBOvUO5PtcYhOxeMYfkeW*VcjdIOqO.hrc!/b&bo=OwA4ADsAOAADGTw!&rf=viewer_4&t=5)">
+      </view>
+    </view>
+    <view class="bg-img threeButton2"
+      style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcfq2vF9YAK4LXQxHjBDTQpjd049alM4SE3fl71S4x38IaFqHJ7ZJsx1arIdQi7RPcjNaiWHBWlYoHPchyRY33r4!/b&bo=8ADwAPAA8AADGTw!&rf=viewer_4&t=5);--ScreenHeight80Percent:{{ScreenHeight80Percent}}px;"
+      bindtap="button3animation">
+      <view class="buttonicon animation-{{button3animation}}"
+        style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOXd0J*ZGKzFFBtbpEiafkbO6v.RCpcT5meqicVbJIDis33Hqf5w8t2.3jON1EUsLEk!/b&bo=NQA0ADUANAADGTw!&rf=viewer_4&t=5)">
+      </view>
+    </view>
+  </view>
+
+</view>
+
+
+<!-- 弹窗 -->
+<view class="cu-modal {{modalName=='Image'?'show':''}}">
+  <view class="cu-dialog bg-yellow.light" bindtap="hideModal">
+    <scroll-view scroll-y class="scrollPage" style="height:1000rpx">
+
+      <view class="flex-sub text-center">
+        <view class="solid-bottom text-xl padding">
+          <text class="text-yellow text-bold">种树小Tips！</text>
+          <!-- <text class="cuIcon-close justify-end text-white"></text> -->
+        </view>
+        <view class="padding text-yellow">卫生委员喊你来种树呦~</view>
+        <view class="action margin">
+          <text class="cuIcon-title text-blue"></text>小树成长共分为四个阶段，每个阶段成长都需要3种不同的养料
+        </view>
+      </view>
+      <image
+        src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E6%A0%91_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=bcc0fe5b3705421fc04fb75693b7b0be&t=1622361443"
+        mode="aspectFit" style="height:400rpx"></image>
+      <view class="action margin">
+        <text class="cuIcon-title text-blue"></text>每种养料达到100后就不会再提升，三种养料都达到100小树才会升级
+      </view>
+      <view class="action margin">
+        <text class="cuIcon-title text-blue"></text>每次施加养料会消耗相应的资源
+      </view>
+      <view class="action margin">
+        <text class="cuIcon-title text-blue"></text>保持良好的垃圾分类习惯来获得资源吧~
+      </view>
+      <image
+        src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E7%A7%8D%E5%AD%90_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=290c2963f5aaa0e2fcd49d74bdf226a4&t=1622361401"
+        mode="aspectFit" style="height:400rpx"></image>
+      <image
+        src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E8%8B%97_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=c6cc5f475a6f18ed807e52aba36519d7&t=1622361413"
+        mode="aspectFit" style="height:400rpx"></image>
+      <image
+        src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E5%B0%8F%E6%A0%91_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=64a63c5bd601f175a38765beadd72757&t=1622361433"
+        mode="aspectFit" style="height:400rpx"></image>
+      <image
+        src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E6%A0%91_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=bcc0fe5b3705421fc04fb75693b7b0be&t=1622361443"
+        mode="aspectFit" style="height:400rpx"></image>
+
+    </scroll-view>
+
+    <view class="cu-bar">
+      <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">我知道了</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Shop'?'show':''}}">
+  <view class="cu-dialog bg-yellow.light">
+
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-yellow text-bold">道具商店</text>
+        <!-- <text class="cuIcon-close justify-end text-white"></text> -->
+      </view>
+      <view class="padding text-yellow">当前积分：<text class="text-lg text-red">{{credit}}</text></view>
+    </view>
+    <!-- <view class="button margin">
+      <button class="cu-btn round bg-orange.light" bindtap="set99">设置99</button>
+    </view> -->
+    <image
+      src="http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOW0DX0BS8OJLemCJdyr4udH1bEJ8REw7slfMRkuM4z2owH1tln6E6pw.gQbd0E3EgY!/b&bo=KwA*ACsAPwADGTw!&rf=viewer_4&t=5"
+      mode="aspectFit" style="height:100rpx"></image>
+    <view class="button margin">
+      <button class="cu-btn round bg-orange.light" bindtap="changeWater">兑换</button>
+    </view>
+    <image
+      src="http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOXqpwxx7rfEXgGWHCmCnEY32gLUjaH2zQBOvUO5PtcYhOxeMYfkeW*VcjdIOqO.hrc!/b&bo=OwA4ADsAOAADGTw!&rf=viewer_4&t=5"
+      mode="aspectFit" style="height:100rpx"></image>
+    <view class="button margin">
+      <button class="cu-btn round bg-orange.light" bindtap="changeFertilizer">兑换</button>
+    </view>
+    <image
+      src="http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOXd0J*ZGKzFFBtbpEiafkbO6v.RCpcT5meqicVbJIDis33Hqf5w8t2.3jON1EUsLEk!/b&bo=NQA0ADUANAADGTw!&rf=viewer_4&t=5"
+      mode="aspectFit" style="height:100rpx"></image>
+    <view class="button margin">
+      <button class="cu-btn round bg-orange.light" bindtap="changeMedicine">兑换</button>
+    </view>
+
+    <view class="cu-bar">
+      <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">关闭</view>
+    </view>
+  </view>
+</view>
+
+<!-- 加载框 -->
+<view class='cu-load load-modal' wx:if="{{loadModal}}" bindtap="hideModal">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

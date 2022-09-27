@@ -1,0 +1,32 @@
+<!--miniprogram/pages/welcome/welcome.wxml-->
+<!-- <swiper autoplay="true">
+  <block wx:for="{{imgs}}" wx:for-index="index">
+    <swiper-item class="swiper-items bg-white">
+      <image class="swiper-image" src="{{item}}" mode="aspectFit"></image>
+      <view class="padding flex flex-direction">
+        <button class="button-img cu-btn round line-blue" bindtap="start">立即体验</button>
+      </view>
+    </swiper-item>
+  </block>
+</swiper> -->
+
+<image class="ScreenHeight" style="--ScreenHeight:{{ScreenHeight}}px;"
+  src="http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mccoB4lWxGo.G3zaEKQ17fZk29LZLjCMRMh8yKskJ.ZRIzpgFKeINBMRP8JJF5sWcwjUCHf9g9dzqr*cEycAQ28I!/b&bo=7gI2Be4CNgUDGTw!&rf=viewer_4&t=5">
+</image>
+
+<view class="ScreenHeight70Percent" style="--ScreenHeight70Percent:{{ScreenHeight70Percent}}px;"></view>
+<view class="text">
+  <view class="flex-sub text-center">
+    <view class="solid-bottom text-lg">
+      <text class="text-bold text-cyan">高校垃圾分类回收新生态~</text>
+    </view>
+  </view>
+</view>
+<view class="flex-sub text-center">
+<image
+  src="https://636c-cloud1-2gaqo1x82614e25f-1305970342.tcb.qcloud.la/%E6%A0%91GIF/%E8%8B%97_%E7%82%B9%E5%87%BB%E5%BE%AA%E7%8E%AF.gif?sign=c6cc5f475a6f18ed807e52aba36519d7&t=1622361413"
+  mode="aspectFit" style="height:400rpx"></image>
+</view>
+<view class="button">
+  <button class="cu-btn round text-cyan" bindtap="start">立即体验 {{num}}s</button>
+</view>

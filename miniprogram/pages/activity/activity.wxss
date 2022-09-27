@@ -1,0 +1,44 @@
+/* miniprogram/pages/activity/activity.wxss */
+/* page{
+  background-color: #7f818d;
+} */
+.tab-bar-height {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+}
+.cu-card.article>.cu-item .activityTitle {
+  margin-top:30rpx;
+	font-size: 30rpx;
+	font-weight: 900;
+	color: var(--black);
+	line-height: 40rpx;
+	padding: 0 30rpx;
+}
+.card-swiper {
+	height: 400rpx !important;
+}
+
+.card-swiper swiper-item {
+	width: 610rpx !important;
+	left: 70rpx;
+	box-sizing: border-box;
+	padding: 40rpx 0rpx 70rpx;
+	overflow: initial;
+}
+
+.card-swiper swiper-item .swiper-item {
+	width: 100%;
+	display: block;
+	height: 100%;
+	border-radius: 10rpx;
+	transform: scale(0.9);
+	transition: all 0.2s ease-in 0s;
+	overflow: hidden;
+}
+
+.card-swiper swiper-item.cur .swiper-item {
+	transform: none;
+	transition: all 0.2s ease-in 0s;
+}

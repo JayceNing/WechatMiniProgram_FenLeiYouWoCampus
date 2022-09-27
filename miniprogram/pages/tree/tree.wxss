@@ -1,0 +1,125 @@
+/* miniprogram/pages/tree/tree.wxss */
+page{
+  background-color: #d7f0db;
+}
+.ScreenHeight{
+  height: var(--ScreenHeight);
+  position: fixed;
+  width:90%
+}
+.bigtag{
+  height: 150rpx;
+  width: 520rpx;
+  position: fixed;
+  top:var(--StatusBar);
+  left:20rpx;
+}
+.smalltag {
+  background-image: url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOVqpF8BRG8iig3EmagUTPj*faR19sBsZkLgS5JWxh3QFouehN9OXXBCL87nHIQBbkY!/b&bo=7ABkAOwAZAADGTw!&rf=viewer_4&t=5);
+  background-size: cover;
+  height: 60rpx;
+  width: 140rpx;
+  position: fixed;
+  margin-left: 0rpx;
+  margin-top:10rpx;
+}
+.smalltag1 {
+  background-image: url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOVqpF8BRG8iig3EmagUTPj*faR19sBsZkLgS5JWxh3QFouehN9OXXBCL87nHIQBbkY!/b&bo=7ABkAOwAZAADGTw!&rf=viewer_4&t=5);
+  background-size: cover;
+  height: 60rpx;
+  width: 140rpx;
+  position: fixed;
+  margin-left: 150rpx;
+  margin-top:10rpx;
+}
+.smalltag2 {
+  background-image: url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcaSF2nqlIZvSz90ICpYqqOVqpF8BRG8iig3EmagUTPj*faR19sBsZkLgS5JWxh3QFouehN9OXXBCL87nHIQBbkY!/b&bo=7ABkAOwAZAADGTw!&rf=viewer_4&t=5);
+  background-size: cover;
+  height: 60rpx;
+  width: 140rpx;
+  position: fixed;
+  margin-left: 300rpx;
+  margin-top:10rpx;
+}
+.smalltagicon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40rpx;
+  width: 30rpx;
+  position: fixed;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+/* .progress{
+  top: var(--ScreenHeight20Percent);
+  position: fixed;
+  left:5%;
+}
+.progressin {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 500rpx;
+  width: 28rpx;
+  position: fixed;
+  margin-left: 2rpx;
+  margin-top: 524rpx;
+} */
+.progress{
+  top: var(--ScreenHeight16Percent);
+  position: fixed;
+  left:5%;
+  width:66%
+} 
+.experienceButton{
+  position: fixed;
+  height: 150rpx;
+  width: 150rpx;
+  top: var(--ScreenHeight20Percent);
+  left:75%;
+  border-radius: 50%;
+}
+.questionButton{
+  position: fixed;
+  height: 150rpx;
+  width: 150rpx;
+  top: var(--ScreenHeight10Percent);
+  left:75%;
+  border-radius: 50%;
+}
+.threeButton0{
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 150rpx;
+  width: 150rpx;
+  top: var(--ScreenHeight60Percent);
+  left:75%;
+}
+.threeButton1{
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 150rpx;
+  width: 150rpx;
+  top: var(--ScreenHeight70Percent);
+  left:75%;
+}
+.threeButton2{
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 150rpx;
+  width: 150rpx;
+  top: var(--ScreenHeight80Percent);
+  left:75%;
+}
+.buttonicon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 70rpx;
+  width: 70rpx;
+  position: fixed;
+  margin-left:36rpx;
+  margin-top:36rpx;
+
+}

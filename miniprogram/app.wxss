@@ -1,0 +1,15 @@
+/**app.wxss**/
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+@import "colorui/animation.wxss";
+
+.tab-bar-height {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+}
+.StatusBar{
+  height: var(--StatusBar);
+}
+

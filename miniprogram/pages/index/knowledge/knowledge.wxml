@@ -1,0 +1,99 @@
+<!--miniprogram/pages/index/knowledge/knowledge.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">分类知识{{curGarbageCategory}}</view>
+</cu-custom>
+
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="输入垃圾名称" confirm-type="search" bindinput='nameInput'></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow-blur round" style="width:160rpx" bindtap="queryGarbageKeyWord">搜索</button>
+  </view>
+</view>
+
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - 50px)"
+  scroll-with-animation="true" enable-back-to-top="true">
+  <swiper class="card-swiper" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper">
+    <swiper-item wx:for="{{activity}}" wx:key class="{{cardCur==index?'cur':''}}">
+      <view class="swiper-item bg-gray" data-id="{{item.id}}" bindtap="changeGarbageCategory">
+        <!-- <view>{{item.name}}</view> -->
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"
+          wx:if="{{item.type=='video'}}"></video>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <view class="flex cu-card margin-left margin-right">
+    <view class="bg-gray cu-item shadow" bindtap="voiceAnalyse">
+      <image
+        src="http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcbmM3BfhHN1trLogBpudaYo58dfwxu0AG6uNiGngB.q8hL2a5t3fC2PrppBpaUkaXMZ1fgxnXtoNCo87iDsG7xo!/b&bo=fACJAHwAiQADGTw!&rf=viewer_4&t=5"
+        mode="aspectFit" style="height:160rpx;opacity:0.6" class="margin-top"></image>
+      <view class="padding radius text-center">
+        <view class="text-lg">语音识别</view>
+      </view>
+    </view>
+    <view class="bg-gray cu-item shadow" bindtap="garbagePicAnalyse">
+      <image
+        src="http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcbmM3BfhHN1trLogBpudaYqr0AZdMHCyvkgToxGZfKCI5AItKhoudaEe5qKS5A0p1gMeAaT0f79uibKgwfRGSeQ!/b&bo=igB5AIoAeQADGTw!&rf=viewer_4&t=5"
+        mode="aspectFit" style="height:160rpx;opacity:0.6" class="margin-top"></image>
+      <view class="padding radius text-center">
+        <view class="text-lg">图像识别</view>
+      </view>
+    </view>
+  </view>
+
+  <block wx:for="{{list}}" wx:key>
+    <view class="padding indexItem-{{list[index].letter}}" id="indexes-{{list[index].letter}}"
+      data-index="{{list[index].letter}}">{{list[index].letter}}</view>
+    <view class="cu-list menu-avatar no-padding">
+      <view bindtap="onChoose" id="{{list[index].garbageItem[sub]}}" class="cu-item"
+        wx:for="{{list[index].garbageItem.length}}" wx:key wx:for-index="sub">
+        <view class="cu-avatar round lg">{{list[index].letter}}</view>
+        <view bindtap="setWordName" id="{{list[index].garbageItem[sub]}}" class="content">
+          <view class="text-grey">
+            {{list[index].garbageItem[sub]}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item" wx:for="{{list}}" wx:key id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">
+      {{list[index].letter}}</view>
+  </view>
+</view>
+
+<!-- 加载框 -->
+<view class='cu-load load-modal' wx:if="{{loadModal}}" bindtap="hideModal">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>查询中...</view>
+</view>
+
+<!-- 语音识别 -->
+<view class="cu-modal {{modalName=='voiceAnalyse'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog bg-white">
+    <view class="bg-img" style="background-image: url('https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fyyb.gtimg.com%2Fai%2Fpage%2Fproduct%2Faaiasr%2Fimg%2Fvoice-ffae68f230.gif%3Fmax_age%3D31536000&refer=http%3A%2F%2Fyyb.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1624709470&t=ce278dac43df787651639306819b748b');height:200px;">
+      <view class="cu-bar justify-end text-white">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close text-black"></text>
+        </view>
+      </view>
+    </view>
+    <button class="cu-btn block bg-blue margin-lg lg" bindtouchstart='startRecord' bindtouchend='endRecord'>按住录音</button>
+  </view>
+</view>
+
+<!-- 语音识别加载框 -->
+<view class='cu-load load-modal' wx:if="{{loadModalName=='voiceRecord'}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>录音中...</view>
+</view>

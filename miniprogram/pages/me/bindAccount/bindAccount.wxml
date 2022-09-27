@@ -1,0 +1,22 @@
+<!--miniprogram/pages/me/bindAccount/bindAccount.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">绑定分类邮我账户</view>
+</cu-custom>
+
+<view class="margin-lg">
+  <image class="img" src="../../../images/LOGO.jpg" mode="aspectFit"></image>
+</view>
+<form class="text-center">
+  <view class="cu-form-group margin-left-lg margin-right-lg">
+    <view class="title">学号</view>
+    <input placeholder="请输入学号" maxlength="10" bindinput='stunumInput' value="{{stunum}}"></input>
+  </view>
+  <view class="cu-form-group margin-left-lg margin-right-lg">
+    <view class="title">密码</view>
+    <input placeholder="请输入密码" bindinput='mimaInput' value="{{mima}}"></input>
+  </view>
+</form>
+<button class="cu-btn block bg-blue margin-top lg" bindtap="bindAccount">登录</button>
+<button class="cu-btn block bg-blue light margin-top lg" bindtap="toRegister">注册</button>
+<button class="cu-btn block bg-gray light margin-top lg" bindtap="testAccount">测试账号</button>

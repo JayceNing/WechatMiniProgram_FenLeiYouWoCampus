@@ -1,0 +1,22 @@
+<!--miniprogram/pages/me/login/login.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">学生认证</view>
+</cu-custom>
+<form>
+  <view class="cu-form-group">
+    <view class="title">学号</view>
+    <input placeholder="请输入学号" maxlength="11" bindinput='stunumInput'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">密码</view>
+    <input placeholder="请输入学号" maxlength="11" bindinput='mimaInput'></input>
+  </view>
+  <button bindtap="tijiao">提交</button>
+  <button class="bg-green" bindtap="zhuce">注册</button>
+  <button class="bg-green" bindtap="xinxi">用户信息</button>
+  <button bindtap="lishijilu">历史记录</button>
+  <button bindtap="huoquxueyuan">学院信息</button>
+  <button bindtap="garbageKey">垃圾关键字</button>
+  <button bindtap="garbageKeyCallfunc">垃圾关键字云函数</button>
+</form>

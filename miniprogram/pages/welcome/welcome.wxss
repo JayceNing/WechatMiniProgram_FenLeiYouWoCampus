@@ -1,0 +1,49 @@
+/* miniprogram/pages/welcome/welcome.wxss */
+/* swiper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+
+.swiper-image {
+  height: 100%;
+  width: 100%;
+  opacity:0.9;
+}
+
+
+.button-img{   
+   position: relative;
+   bottom: 100px;
+   height: 40px;
+   width: 120px;
+} */
+
+.ScreenHeight {
+  height: var(--ScreenHeight);
+  position: fixed;
+  width: 100%
+}
+
+.text {
+  display: flex;
+  align-items:center;
+  text-align: center;
+  top:56%;
+  position: fixed;
+  width:50%;
+  left:25%
+}
+.button {
+  display: flex;
+  align-items: center;
+  top:70%;
+  position: fixed;
+  width:30%;
+  left:35%
+}
+
+.ScreenHeight70Percent {
+  height: var(--ScreenHeight70Percent);
+}

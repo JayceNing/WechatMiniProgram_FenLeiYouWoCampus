@@ -1,0 +1,37 @@
+/* miniprogram/pages/index/index.wxss */
+page{
+  background-color: #7f818d;
+}
+
+.bg-mygray{
+  background-color:#f1f1f1;
+	color: var(--gray);
+}
+.tab-bar-height {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+}
+
+.mynav {
+	white-space: nowrap;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+.mynav .cu-item {
+	height: 90rpx;
+	display: inline-block;
+	line-height: 100rpx;
+	margin: 0 10rpx;
+	padding: 0 30rpx;
+	border-top-right-radius: 10rpx;
+	border-top-left-radius: 10rpx;
+}
+
+.mynav .cu-item.cur {
+	border-bottom: 4rpx solid;
+}

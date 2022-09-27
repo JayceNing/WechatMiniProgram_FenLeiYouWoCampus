@@ -1,0 +1,14 @@
+<!--miniprogram/pages/me/about/about.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">开发信息</view></cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class="margin flex">
+    <image class="swiper-image" src="/images/LOGO.jpg" mode="aspectFit"></image>
+  </view>
+  <view class='text-center margin-bottom text-xl  text-grey'></view>
+  <view class='text-center margin-bottom margin-top text-lg  text-grey'>分类邮我·校园新型垃圾分类回收系统</view>
+  <view class='text-center margin-bottom text-lg  text-grey'>高校垃圾分类回收生态社区</view>
+  <view class='text-content'>
+    <view class='text-center'>开发版本：1.0.2</view>
+    <view class='text-center margin-top-sm'>开发者团队：北邮环保小卫士</view>
+  </view>
+</view>

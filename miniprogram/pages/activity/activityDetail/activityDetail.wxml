@@ -1,0 +1,89 @@
+<!--miniprogram/pages/activity/activityDetail/activityDetail.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">活动详情:{{name}}</view>
+</cu-custom>
+<view class="bg-img" style="background-image:url({{imgUrl}});height:400rpx">
+</view>
+<view class="activityTitle">
+  <view class="text">{{name}}</view>
+</view>
+<view class="margin">
+  <view><text class="cuIcon-group"></text>{{organization}}</view>
+  <view class="margin-top"><text class="cuIcon-time"></text>活动时间：{{aStartTime}} ~ {{aEndTime}}</view>
+  <view class="margin-top"><text class="cuIcon-time"></text>报名时间：{{sStartTime}} ~ {{sEndTime}}</view>
+  <view class="margin-top"><text class="cuIcon-location"></text>地点：{{place}}</view>
+</view>
+<view class="margin-left">
+  <view class="cu-tag bg-green">{{organization}}</view>
+  <view wx:if="{{award}}" class="cu-tag bg-red">有奖品</view>
+  <button wx:if="{{award&&on==1}}" class="cu-btn block bg-blue margin-top lg" bindtap="userConvertAward"
+    data-target="userConvertAward">兑换奖品</button>
+  <button wx:if="{{award&&on==0}}" class="cu-btn block bg-blue light margin-top lg"
+    bindtap="disabledButton">兑换奖品</button>
+  <button wx:if="{{award&&on==0&&isAdmin==1}}" class="cu-btn block bg-green light margin-top lg"
+    bindtap="convertAwardOn">开始兑奖</button>
+  <button wx:if="{{award&&on==1&&isAdmin==1}}" class="cu-btn block bg-green light margin-top lg"
+    bindtap="convertAwardEnd">结束兑奖</button>
+  <button wx:if="{{award&&on==1&&isAdmin==1}}" class="cu-btn block bg-green margin-top lg"
+    bindtap="convertAward">扫码兑奖</button>
+</view>
+<view wx:if="{{showQRCode==1}}">
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text>兑奖二维码
+    </view>
+  </view>
+  <view class="text-xl padding text-center">
+    <text class="text-black text-bold">学号：{{stuNum}}</text>
+  </view>
+  <view class="text-center">
+    <text class="text-black text-bold">获奖等级：{{prize}}</text>
+  </view>
+  <canvas bindtap="previewImg" canvas-id="mycanvas" class="qrcode" />
+  <view class="text-center">
+    <text class="text-black text-bold">请保存二维码供兑奖使用！</text>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>活动说明
+  </view>
+</view>
+<view class="text-content margin">{{detail}}</view>
+
+<!-- 对话框 -->
+<view class="cu-modal {{modalName=='userConvertAward'?'show':''}}">
+  <view class="cu-dialog bg-white">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">请输入学号</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <input class="bg-white" placeholder='请输入学号' maxlength="10" bindinput="bindStuNumInput"></input>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <view class="cu-btn line-green text-green" bindtap="hideModal">取消</view>
+        <view class="cu-btn bg-green margin-left" bindtap="bindUserConvertAward">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='showQRCode'?'show':''}}">
+  <view class="cu-dialog bg-white">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">是否转到二维码页面</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <view class="cu-btn line-green text-green" bindtap="hideModal">取消</view>
+        <view class="cu-btn bg-green margin-left" bindtap="showQRCode">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

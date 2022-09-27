@@ -1,0 +1,60 @@
+<!--miniprogram/pages/index/place/place.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">投放点</view>
+</cu-custom>
+<!-- <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="输入垃圾桶名称" confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round" style="width:160rpx" bindtap="directToTrashBin">搜索</button>
+    </view>
+  </view> -->
+
+
+<map class="map" id="map" markers="{{markers}}" min-scale="{{minScale}}" max-scale="{{maxScale}}"
+  latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" setting="{{setting}}"
+  enable-overlooking="{{isOverLooking}}" enable-3D="{{is3D}}" show-compass="{{isShowCompass}}"
+  show-scale="{{isShowScale}}" polygons="{{polygon}}" polyline="{{polyline}}" bindmarkertap="onTapMarker"
+  style="--screenHeight--: {{screenHeight}}px">
+  <cover-view slot="callout">
+    <block wx:for="{{markers}}" wx:key="*this">
+      <cover-view marker-id="{{item.id}}">
+        <cover-view class='padding bg-white radius shadow-lg'>
+          <cover-view class='text-content'>
+            <cover-view>名称：{{item.title}}</cover-view>
+          </cover-view>
+        </cover-view>
+      </cover-view>
+    </block>
+  </cover-view>
+  <!-- <cover-view wx:if="{{showScan}}" class="scanCode cu-btn block bg-blue light" style="--ScreenHeight80Percent--: {{ScreenHeight80Percent}}px">
+      <cover-view class="" bindtap="scanQRCode">扫码开桶</cover-view>
+  </cover-view> -->
+</map>
+<view>
+    <view class="{{showScan==1?'scanCode':''}} cu-btn block bg-blue light" style="--ScreenHeight80Percent--: {{ScreenHeight80Percent}}px" bindtap="scanQRCode">扫码开桶</view>
+</view>
+
+
+
+
+<!-- 底部窗口 -->
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view>
+    <view class="padding-sm">
+      地点：{{modalContent}}
+    </view>
+    <view class="margin-top-sm">
+      剩余容量：{{full}}
+    </view>
+    <view class="margin-xl cu-btn bg-green shadow" bindtap="directToTrashBin">导航</view>
+  </view>
+</view>

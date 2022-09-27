@@ -1,0 +1,69 @@
+<!--miniprogram/pages/me/register/register.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">注册分类邮我账号</view></cu-custom>
+<form>
+  <view class="cu-form-group margin-top">
+		<view class="title">姓名</view>
+		<input placeholder="请输入真实姓名" bindinput='nameInput'></input>
+  </view>
+  <!-- <view class="cu-form-group">
+		<view class="title">性别</view>
+		<picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+			<view class="picker">
+				{{index?picker[index]:'选择您的性别'}}
+			</view>
+		</picker>
+  </view> -->
+  <view class="cu-form-group">
+		<view class="title">学号</view>
+		<input placeholder="请输入学号" maxlength="11" bindinput='stunumInput'></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密码</view>
+		<input placeholder="请输入密码" bindinput='codeInput'></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">密码</view>
+		<input placeholder="请再次输入密码" bindinput='codeInputAgain'></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">学院</view>
+		<picker bindchange="PickerChange1" value="{{index1}}" range="{{picker1}}">
+			<view class="picker">
+				{{index1?picker1[index1]:'选择您所在的学院'}}
+			</view>
+		</picker>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">入学年份</view>
+		<picker bindchange="PickerChange2" value="{{index2}}" range="{{picker2}}">
+			<view class="picker">
+				{{index2?picker2[index2]:'选择您的入学年份'}}
+			</view>
+		</picker>
+  </view>
+  <!-- <view class="cu-bar bg-white margin-top">
+		<view class="action">
+			学生证上传
+		</view>
+		<view class="action">
+			{{imgList.length}}/2
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-2 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<2}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view> -->
+  <view class="cu-bar btn-group">
+		<!-- <button class="cu-btn text-blue line-blue shadow" bindtap="submit">提交</button> -->
+		<button class="cu-btn text-blue line-blue shadow" bindtap="submit">提交</button>
+  </view>
+</form>

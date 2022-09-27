@@ -1,0 +1,66 @@
+<!--miniprogram/pages/index/knowledge/queryResult/queryResult.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view wx:if="{{name}}" slot="content">{{name}}：查询结果</view>
+  <view wx:else slot="content">识别结果</view>
+</cu-custom>
+
+<view wx:if="{{queryWay=='pic'}}" class="">
+  <swiper class="swiper_container_notice swiper_container bg-yellow.light" vertical="true" autoplay="true" circular="true" interval="3000">
+    <block wx:for="{{msgList}}" wx:key>
+        <swiper-item bindtap="messageDetails" class="swiper_notice swiper">
+          <text class="cuIcon-notification text-yellow margin-right-sm"></text>
+          <view class="swiper_item_notice swiper_item">{{item.title}}</view>
+        </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+
+<view wx:if="{{queryWay=='word'}}">
+  <view wx:for="{{queryResult}}" wx:key>
+    <view class="cu-card article">
+      <view class="cu-item shadow" style="background-color:{{item.color}}">
+        <view class="title flex justify-between">
+          <view class="text-cut">{{item.name}}</view>
+          <view class="cu-tag margin-top {{item.bgColor}}">{{item.category}}</view>
+          <view class="text-right">{{item.category}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view wx:if="{{queryWay=='pic'}}">
+  <view wx:for="{{queryResult}}" wx:key>
+    <view class="cu-card article" id="{{index}}" bindtap="showDetail">
+      <view class="cu-item shadow" style="background-color:{{item.list?'#d2f1f0':'#e7ebed'}}">
+        <view class="title flex justify-between">
+          <view class="action">
+            <text class="cuIcon-title {{item.list?'text-blue':'text-black'}}"></text>物品名称：{{item.keyword}}
+          </view>
+          <view class="text-right">可能性：{{item.score}}%</view>
+        </view>
+        <view class="margin-left margin-right">
+          <view class="cu-progress round">
+            <view class="{{item.list?'bg-gradual-blue':'bg-brown.light'}}" style="width:{{item.score}}%"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{item.show==1}}">
+      <block wx:for="{{item.list}}">
+        <view class="cu-card article">
+          <view class="cu-item shadow" style="background-color:{{item.color}}">
+            <view class="title flex justify-between">
+              <view class="text-cut">{{item.name}}</view>
+              <view class="cu-tag margin-top {{item.bgColor}}">{{item.category}}</view>
+              <view class="text-right">{{item.category}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

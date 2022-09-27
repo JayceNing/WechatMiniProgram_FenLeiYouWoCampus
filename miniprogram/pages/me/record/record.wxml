@@ -1,0 +1,21 @@
+<!--miniprogram/pages/me/record/record.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">投放记录</view>
+</cu-custom>
+
+<view class="margin-top">
+  <view wx:for="{{record}}" wx:key wx:for-item="item">
+    <view class="cu-card bg-white margin" style="border-radius: 10rpx;">
+      <view class="margin flex flex-wrap">
+        <view class="cu-avatar round xl basis-xs" style="background-image:url({{item.imageUrl}});"></view>
+        <view class="basis-xl content flex-sub margin-left-xl margin-top">
+          <view class="text-grey text-lg">{{item.title}}</view>
+          <view class="text-gray flex justify-between">
+            {{item.brief}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

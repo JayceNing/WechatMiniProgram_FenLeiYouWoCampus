@@ -1,0 +1,38 @@
+<!--miniprogram/pages/faceConfirm/faceConfirm.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">管理员登录</view>
+</cu-custom>
+<view wx:if="{{adminInfo}}" class="flex-sub text-center">
+  <view class="text-xsl padding">
+    <text class=" cuIcon-roundcheckfill text-green"></text>
+  </view>
+  <view class="text-xl padding">
+    <text class="text-black text-bold">尊敬的管理员：{{adminInfo.PersonName}}</text>
+  </view>
+  <view class="text-xl padding">
+    <text class="text-black text-bold">欢迎您！</text>
+  </view>
+</view>
+<view wx:if="{{accessDenied==1}}" class="flex-sub text-center">
+  <view class="text-xsl padding">
+    <text class=" cuIcon-roundclosefill text-red"></text>
+  </view>
+  <view class="text-xl padding">
+    <text class="text-black text-bold">拒绝访问</text>
+  </view>
+  <view class="text-xl padding">
+    <text class="text-black text-bold">ACCESS DENIED</text>
+  </view>
+</view>
+<view wx:if="{{accessDenied!=1&&!adminInfo}}">
+  <camera device-position="front" flash="off" binderror="error" style="width: 100%; height: 800rpx;"></camera>
+  <button class="cu-btn block bg-blue margin-top lg" bindtap="faceConfirmAdmin">拍摄</button>
+</view>
+
+<!-- 加载框 -->
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>分析中...</view>
+</view>

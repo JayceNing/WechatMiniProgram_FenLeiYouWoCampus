@@ -1,0 +1,4 @@
+<!--miniprogram/pages/index/artical/artical.wxml-->
+<!-- <cu-custom bgColor="bg-white" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">活动资讯</view></cu-custom> -->
+<web-view src="{{url}}"></web-view>
+

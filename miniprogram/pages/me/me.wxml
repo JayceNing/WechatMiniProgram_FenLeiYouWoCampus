@@ -1,0 +1,89 @@
+<!--miniprogram/pages/me/me.wxml-->
+<view class="UCenter-bg bg-white">
+    <image class="avatar shadow-lg" src="{{avatarUrl}}" mode="widthFix"></image>
+    <view class='text-center margin-top-lg'>
+      <!-- <button class="cu-btn round line-blue margin-tb-sm" style="width:200rpx" wx:if="{{canIUseGetUserProfile&&!hasUserInfo}}" bindtap="getUserProfile">点击登录</button> -->
+      <view class="UCenter-bg-button">
+        <view class="bg-img" style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcfq2vF9YAK4LXQxHjBDTQpi**wCQO.CzzmiHlJqsIQnnG.C0svH6qP5WlL1eaPNCMwMpqG*tTJ3CrnuvoVyKano!/b&bo=GAF4ABgBeAADGTw!&rf=viewer_4&t=5);height:50rpx;width:118rpx" wx:if="{{canIUseGetUserProfile&&!hasUserInfo}}" bindtap="getUserProfile"><view class='text-center text-content text-lg'>登录</view></view>
+      </view>
+      <view wx:if="{{userInfo.nickName}}" class="text-xl">
+        <text class="text-blue">{{userInfo.nickName}}</text>
+        <view wx:if="{{registered==0}}" class="cu-tag bg-gray sm" bindtap="toBindAccount">未绑定</view>
+        <view wx:else class="cu-tag bg-blue sm">已绑定</view>
+      </view>
+    </view>
+</view>
+<view wx:if="{{registered!=0}}" class="padding flex text-center text-grey bg-white shadow-warp">
+   <view class='margin-top-sm'>绿色诚信账户</view>
+    <view class="flex flex-sub flex-direction solid-right" bindtap="directToShop" id="0">
+      <view class="margin-top-sm">账户余额</view>
+      <view class="text-xxl text-orange">{{credit}}</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right" bindtap="" id="1">
+      <view class="margin-top-sm">全校排名</view>
+      <view class="text-xxl text-blue">{{collegeRanking}}</view>
+    </view>
+    <view class="flex flex-sub flex-direction" bindtap="" id="2">
+      <view class="margin-top-sm">全院排名</view>
+      <view class="text-xxl text-green">{{schoolRanking}}</view>
+    </view>
+</view>
+
+
+<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+  <view wx:if="{{hasUserInfo&registered==0}}" class="cu-item arrow">
+    <view class="content" bindtap="toBindAccount">
+      <!-- <text class="cuIcon-formfill text-green"></text> -->
+      <text class="text-grey margin-left-xl">绑定账号</text>
+    </view>
+  </view>
+  <view wx:if="{{hasUserInfo}}" class="cu-item arrow">
+    <view class="content" bindtap="myInforTap">
+      <!-- <text class="cuIcon-formfill text-green"></text> -->
+      <text class="text-grey margin-left-xl">账户信息</text>
+    </view>
+  </view>
+  <view wx:if="{{hasUserInfo}}" class="cu-item arrow">
+    <navigator class="content" url="/pages/me/record/record" hover-class="none">
+      <text class="text-grey margin-left-xl">投放记录</text>
+    </navigator>
+  </view>
+  <!-- <view class="cu-item arrow">
+    <navigator class="content" url="/pages/me/login/login" hover-class="none">
+      <text class="text-grey margin-left-xl">接口测试</text>
+    </navigator>
+  </view> -->
+  <view wx:if="{{hasUserInfo&registered==1}}" class="cu-item arrow">
+    <view class="content" bindtap="unbindAccount">
+      <!-- <text class="cuIcon-formfill text-green"></text> -->
+      <text class="text-grey margin-left-xl">解除绑定</text>
+    </view>
+  </view>
+  <view class="cu-item arrow">
+    <navigator class="content" url="/pages/me/about/about" hover-class="none">
+      <!-- <text class="cuIcon-creativefill text-orange"></text> -->
+      <text class="text-grey margin-left-xl">开发信息</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
+    <button class="cu-btn content" open-type="feedback">
+      <!-- <text class="cuIcon-writefill text-cyan"></text> -->
+      <text class="text-grey margin-left-xl">意见反馈</text>
+    </button>
+  </view>
+  <!-- <view wx:if="{{!isLoaded&hasUserInfo}}" class="cu-item arrow">
+    <view class="content" bindtap="init">
+      <text class="text-grey margin-left-xl">投放记录</text>
+    </view>
+  </view> -->
+</view>
+
+
+
+<!-- <button bindtap="dispose" wx:if="{{isLoaded && !isDisposed}}">释放图表</button>
+<view class="container">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view> -->
+
+<view class="tab-bar-height"></view>
+

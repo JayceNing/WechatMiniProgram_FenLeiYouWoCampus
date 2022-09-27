@@ -1,0 +1,57 @@
+<!--miniprogram/pages/activity/activity.wxml-->
+<view class="StatusBar" style='--StatusBar:{{StatusBar}}px;'></view>
+<view class="bg-img"
+  style="background-image:url(http://m.qpic.cn/psc?/V51o6AfO138S3m3lNdc10hOSZE0Lke63/45NBuzDIW489QBoVep5mcahJPxpWVpPDRXvnDVlzzr*Liv0OJoWsi9Zc53LWk3euKtrs3Fm5nFG0.xxuDmL.de6cPSwzBE5u3zZLp27lYVQ!/b&bo=3AWwAdwFsAEDGTw!&rf=viewer_4&t=5);height:214rpx">
+</view>
+
+<swiper class="card-swiper" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper">
+  <swiper-item wx:for="{{activity}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFit	" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover"
+        wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+
+<view wx:for="{{queryResult}}" wx:key wx:for-item="item">
+  <navigator
+    url="/pages/activity/activityDetail/activityDetail?aEndTime={{item.aEndTime}}&aStartTime={{item.aStartTime}}&award={{item.award}}&detail={{item.detail}}&name={{item.name}}&organization={{item.organization}}&place={{item.place}}&sEndTime={{item.sEndTime}}&sStartTime={{item.sStartTime}}&on={{item.on}}&_id={{item._id}}&collectionName={{item.collectionName}}"
+    hover-class="none">
+    <view class="cu-card article" data-id="{{item.imgUrl}}" bindtap="passImgUrl">
+      <view class="cu-item shadow bg-white">
+        <view class="activityTitle">
+          <view class="text">{{item.name}}</view>
+        </view>
+        <view class="margin">
+          <view><text class="cuIcon-time"></text>{{item.aStartTime}} ~ {{item.aEndTime}}</view>
+          <view class="margin-top"><text class="cuIcon-location"></text>{{item.place}}</view>
+        </view>
+        <view class="margin-left">
+          <view class="cu-tag bg-green">{{item.organization}}</view>
+          <view wx:if="{{item.award}}" class="cu-tag bg-red">有奖品</view>
+        </view>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view wx:if="{{isAdmin==1}}">
+  <view class="flex-sub text-center">
+    <view class="text-xl padding">
+      <text class="text-black text-bold">当前管理员：{{adminName}}</text>
+    </view>
+  </view>
+  <button class="cu-btn block bg-blue light margin-top lg" bindtap="adminLogout">管理员注销</button>
+</view>
+
+<button wx:else class="cu-btn block bg-blue margin-top lg" bindtap="toFaceConfirmAdmin">管理员登录</button>
+
+<view class="tab-bar-height"></view>
+
+<!-- 加载框 -->
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='/images/logo.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

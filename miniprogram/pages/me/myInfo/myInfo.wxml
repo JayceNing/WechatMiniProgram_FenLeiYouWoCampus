@@ -1,0 +1,19 @@
+<!--miniprogram/pages/me/myInfo/myInfo.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}"><view slot="backText">返回</view><view slot="content">账户信息</view></cu-custom>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class="cu-form-group margin-top">
+		<view class="title">姓名：{{realName}}</view>
+	</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">性别：{{sex}}</view>
+	</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">学号：{{stunum}}</view>
+	</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">学院：{{institute}}</view>
+	</view>
+  <view class="cu-form-group margin-top">
+		<view class="title">入学年份：{{yearOfEnrollment}}</view>
+	</view>
+</view>

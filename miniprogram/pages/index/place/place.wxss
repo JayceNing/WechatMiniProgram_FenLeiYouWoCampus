@@ -1,0 +1,91 @@
+/* miniprogram/pages/index/place/place.wxss */
+.customCallout {
+  box-sizing: border-box;
+  background-color: #fff; 
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  width: 150px;
+  height: 40px;
+  display: inline-flex;
+  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+/*地图*/
+.map-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  background: #F8F8F7;
+  width: 100%;
+}
+.map-view-content {
+  background: #FFF;
+  padding:20px 0 0;
+  margin-top: 10px;
+}
+.control-btn {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  z-index: 99;
+  background: #FFF;
+  line-height: 35px;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 4px;
+  right: 10px;
+}
+.control-btn-increase {
+  top:73px;
+}
+.control-btn-decrease {
+  bottom: 72px;
+}
+.map {
+  width:100%;
+  height:var(--screenHeight--);
+  position: relative;
+}
+.active {
+	color: #222;
+	font-weight: 500;
+}
+.reset-btn {
+  text-align: center;
+  line-height: 46px;
+  cursor: pointer;
+  color: #FFF;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 30px;
+  background: #3875FF;
+  height: 46px;
+  width: 198px;
+}
+.slider {
+  height: 22px;
+}
+.rotate-range {
+	padding-right: 0;
+	height: 35px;
+	line-height: 17px;
+	font-size: 12px;
+	margin-top: 5px;
+	color: rgba(34,34,34,0.5);
+}
+.scanCode{
+  position: fixed;
+  top: var(--ScreenHeight80Percent--);
+  height: 100rpx;
+  width: 300rpx;
+  left:30%;
+  border-radius: 10px;
+  
+}
